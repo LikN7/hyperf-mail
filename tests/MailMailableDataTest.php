@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Mail;
 
-use HyperfExt\Mail\Mailable;
+use MsPro\Mail\Mailable;
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -11,7 +11,7 @@ declare(strict_types=1);
 namespace %NAMESPACE%;
 
 use HyperfExt\Contract\ShouldQueue;
-use HyperfExt\Mail\Mailable;
+use MsPro\Mail\Mailable;
 
 class %CLASS% extends Mailable implements ShouldQueue
 {

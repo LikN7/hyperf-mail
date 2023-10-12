@@ -8,11 +8,11 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail\Concerns;
+namespace MsPro\Mail\Concerns;
 
 use Hyperf\Collection\Collection;
 use HyperfExt\Contract\HasMailAddress;
-use HyperfExt\Mail\PendingMail;
+use MsPro\Mail\PendingMail;
 
 trait PendingMailable
 {

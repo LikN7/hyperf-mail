@@ -75,7 +75,7 @@ return [
         ],
 
         'log' => [
-            'transport' => \HyperfExt\Mail\Transport\LogTransport::class,
+            'transport' => \MsPro\Mail\Transport\LogTransport::class,
             'options' => [
                 'name' => 'mail.local',
                 'group' => 'default',

@@ -8,10 +8,10 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
-use HyperfExt\Mail\Commands\GenMailCommand;
-use HyperfExt\Mail\Contracts\MailManagerInterface;
+use MsPro\Mail\Commands\GenMailCommand;
+use MsPro\Mail\Contracts\MailManagerInterface;
 
 class ConfigProvider
 {
@@ -29,7 +29,7 @@ class ConfigProvider
             'publish' => [
                 [
                     'id' => 'config',
-                    'description' => 'The config for hyperf-ext/mail.',
+                    'description' => 'The config for jenawant/mspro-mail.',
                     'source' => __DIR__ . '/../publish/mail.php',
                     'destination' => BASE_PATH . '/config/autoload/mail.php',
                 ],

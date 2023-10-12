@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail\Events;
+namespace MsPro\Mail\Events;
 
 use Symfony\Component\Mime\Email;
 

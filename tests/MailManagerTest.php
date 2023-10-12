@@ -12,8 +12,8 @@ namespace HyperfTest\Mail;
 
 use Hyperf\Config\Config;
 use Hyperf\Contract\ConfigInterface;
-use HyperfExt\Mail\Contracts\MailManagerInterface;
-use HyperfExt\Mail\MailManager;
+use MsPro\Mail\Contracts\MailManagerInterface;
+use MsPro\Mail\MailManager;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;

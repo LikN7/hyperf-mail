@@ -8,12 +8,12 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
 use Hyperf\AsyncQueue\Job;
 use Hyperf\Context\ApplicationContext;
-use HyperfExt\Mail\Contracts\MailableInterface;
-use HyperfExt\Mail\Contracts\MailManagerInterface;
+use MsPro\Mail\Contracts\MailableInterface;
+use MsPro\Mail\Contracts\MailManagerInterface;
 
 class QueuedMailableJob extends Job
 {

@@ -55,7 +55,7 @@ composer require hyperf/guzzle
 [
     // ...
     'mailgun' => [
-        'transport' => \HyperfExt\Mail\Transport\MailgunTransport::class,
+        'transport' => \MsPro\Mail\Transport\MailgunTransport::class,
         'options' => [
             'domain' => env('MAIL_MAILGUN_DOMAIN'),
             'key' => env('MAIL_MAILGUN_KEY'),
@@ -82,7 +82,7 @@ composer require wildbit/swiftmailer-postmark
 [
     // ...
     'postmark' => [
-        'transport' => \HyperfExt\Mail\Transport\PostmarkTransport::class,
+        'transport' => \MsPro\Mail\Transport\PostmarkTransport::class,
         'options' => [
             'token' => env('MAIL_POSTMARK_TOKEN'),
         ],
@@ -105,7 +105,7 @@ composer require wildbit/swiftmailer-postmark
 [
     // ...
     'aws_ses' => [
-        'transport' => \HyperfExt\Mail\Transport\AwsSesTransport::class,
+        'transport' => \MsPro\Mail\Transport\AwsSesTransport::class,
         'options' => [
             'credentials' => [
                 'key' => env('MAIL_AWS_SES_ACCESS_KEY_ID'),
@@ -124,7 +124,7 @@ composer require wildbit/swiftmailer-postmark
 [
     // ...
     'aws_ses' => [
-        'transport' => \HyperfExt\Mail\Transport\AwsSesTransport::class,
+        'transport' => \MsPro\Mail\Transport\AwsSesTransport::class,
         'options' => [
             'credentials' => [
                 'key' => env('MAIL_AWS_SES_ACCESS_KEY_ID'),
@@ -161,7 +161,7 @@ composer require wildbit/swiftmailer-postmark
 [
     // ...
     'aliyun_dm' => [
-        'transport' => \HyperfExt\Mail\Transport\AliyunDmTransport::class,
+        'transport' => \MsPro\Mail\Transport\AliyunDmTransport::class,
         'options' => [
             'access_key_id' => env('MAIL_ALIYUN_DM_ACCESS_KEY_ID'),
             'access_secret' => env('MAIL_ALIYUN_DM_ACCESS_SECRET'),
@@ -259,7 +259,7 @@ public function build()
 namespace App\Mail;
 
 use App\Models\Order;
-use HyperfExt\Mail\Mailable;
+use MsPro\Mail\Mailable;
 
 class OrderShipped extends Mailable
 {
@@ -311,7 +311,7 @@ class OrderShipped extends Mailable
 namespace App\Mail;
 
 use App\Model\Order;
-use HyperfExt\Mail\Mailable;
+use MsPro\Mail\Mailable;
 
 class OrderShipped extends Mailable
 {
@@ -514,7 +514,7 @@ use App\Mail\OrderShipped;
 use App\Model\Order;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
-use HyperfExt\Mail\Mail;
+use MsPro\Mail\Mail;
 
 class OrderController
 {
@@ -535,7 +535,7 @@ class OrderController
 在发送消息时不止可以指定收件人。还可以通过链式调用「to」、「cc」、「bcc」一次性指定抄送和密送收件人：
 
 ```php
-use HyperfExt\Mail\Mail;
+use MsPro\Mail\Mail;
 
 Mail::to($request->user())
     ->cc($moreUsers)
@@ -602,7 +602,7 @@ Mail::to($request->user())
 
 ```php
 use HyperfExt\Contract\ShouldQueue;
-use HyperfExt\Mail\Mailable;
+use MsPro\Mail\Mailable;
 
 class OrderShipped extends Mailable implements ShouldQueue
 {

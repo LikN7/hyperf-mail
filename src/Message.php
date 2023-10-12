@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
 use Hyperf\Support\Traits\ForwardsCalls;
 use Symfony\Component\Mime\Address;

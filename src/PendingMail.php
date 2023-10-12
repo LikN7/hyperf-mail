@@ -8,14 +8,14 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
 use Hyperf\Context\ApplicationContext;
 use Hyperf\Collection\Collection;
 use HyperfExt\Contract\HasLocalePreference;
 use HyperfExt\Contract\HasMailAddress;
-use HyperfExt\Mail\Contracts\MailableInterface;
-use HyperfExt\Mail\Contracts\MailManagerInterface;
+use MsPro\Mail\Contracts\MailableInterface;
+use MsPro\Mail\Contracts\MailManagerInterface;
 
 class PendingMail
 {

@@ -10,7 +10,7 @@ declare(strict_types=1);
  */
 namespace HyperfTest\Mail;
 
-use HyperfExt\Mail\Message;
+use MsPro\Mail\Message;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Mime\Address;

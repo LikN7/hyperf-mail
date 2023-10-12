@@ -11,10 +11,10 @@ declare(strict_types=1);
 namespace HyperfTest\Mail;
 
 use Hyperf\Utils\ApplicationContext;
-use HyperfExt\Mail\Contracts\MailableInterface;
-use HyperfExt\Mail\Events\MailMessageSending;
-use HyperfExt\Mail\Events\MailMessageSent;
-use HyperfExt\Mail\Mailer;
+use MsPro\Mail\Contracts\MailableInterface;
+use MsPro\Mail\Events\MailMessageSending;
+use MsPro\Mail\Events\MailMessageSent;
+use MsPro\Mail\Mailer;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\EventDispatcher\EventDispatcherInterface;

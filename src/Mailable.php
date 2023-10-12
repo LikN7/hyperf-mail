@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
 use Closure;
 use Hyperf\AsyncQueue\Driver\DriverFactory;
@@ -23,9 +23,9 @@ use Hyperf\Stringable\Str;
 use Hyperf\Support\Traits\ForwardsCalls;
 use Hyperf\View\RenderInterface;
 use HyperfExt\Contract\HasMailAddress;
-use HyperfExt\Mail\Contracts\MailableInterface;
-use HyperfExt\Mail\Contracts\MailerInterface;
-use HyperfExt\Mail\Contracts\MailManagerInterface;
+use MsPro\Mail\Contracts\MailableInterface;
+use MsPro\Mail\Contracts\MailerInterface;
+use MsPro\Mail\Contracts\MailManagerInterface;
 use ReflectionClass;
 use ReflectionProperty;
 

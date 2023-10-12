@@ -20,11 +20,15 @@
         {
             "name": "Volodymyr Mikhav",
             "email": "mihaw.wolodymyr@gmail.com"
+        },
+        {
+            "name": "Jena Wang",
+            "email": "jena.want@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "HyperfExt\\Mail\\": "src/"
+            "MsPro\\Mail\\": "src/"
         }
     },
     "autoload-dev": {

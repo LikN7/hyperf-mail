@@ -8,15 +8,15 @@ declare(strict_types=1);
  * @contact  eric@zhu.email
  * @license  https://github.com/hyperf-ext/mail/blob/master/LICENSE
  */
-namespace HyperfExt\Mail;
+namespace MsPro\Mail;
 
 use Hyperf\Macroable\Macroable;
 use HyperfExt\Contract\ShouldQueue;
-use HyperfExt\Mail\Concerns\PendingMailable;
-use HyperfExt\Mail\Contracts\MailableInterface;
-use HyperfExt\Mail\Contracts\MailerInterface;
-use HyperfExt\Mail\Events\MailMessageSending;
-use HyperfExt\Mail\Events\MailMessageSent;
+use MsPro\Mail\Concerns\PendingMailable;
+use MsPro\Mail\Contracts\MailableInterface;
+use MsPro\Mail\Contracts\MailerInterface;
+use MsPro\Mail\Events\MailMessageSending;
+use MsPro\Mail\Events\MailMessageSent;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Mailer\MailerInterface as SymfonyMailerInterface;
