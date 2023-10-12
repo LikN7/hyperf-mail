@@ -16,11 +16,11 @@ use Hyperf\Contract\CompressInterface;
 use Hyperf\Contract\TranslatorInterface;
 use Hyperf\Contract\UnCompressInterface;
 use Hyperf\Filesystem\FilesystemFactory;
-use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Collection;
-use Hyperf\Utils\Coroutine;
-use Hyperf\Utils\Str;
-use Hyperf\Utils\Traits\ForwardsCalls;
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Collection\Collection;
+use Hyperf\Coroutine\Coroutine;
+use Hyperf\Stringable\Str;
+use Hyperf\Support\Traits\ForwardsCalls;
 use Hyperf\View\RenderInterface;
 use HyperfExt\Contract\HasMailAddress;
 use HyperfExt\Mail\Contracts\MailableInterface;
@@ -209,7 +209,7 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
 
     public function attach(string $file, array $options = []): self
     {
-        $this->attachments = collect($this->attachments)
+        $this->attachments = \Hyperf\Collection\collect($this->attachments)
             ->push(compact('file', 'options'))
             ->unique('file')
             ->all();
@@ -219,8 +219,8 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
 
     public function attachFromStorage(?string $adapter, string $path, ?string $name = null, array $options = []): self
     {
-        $this->storageAttachments = collect($this->storageAttachments)->push([
-            'storage' => $adapter ?: config('file.default'),
+        $this->storageAttachments = \Hyperf\Collection\collect($this->storageAttachments)->push([
+            'storage' => $adapter ?: \Hyperf\Config\config('file.default'),
             'path' => $path,
             'name' => $name ?? basename($path),
             'options' => $options,
@@ -241,7 +241,7 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
 
     public function attachData(string $data, string $name, array $options = []): self
     {
-        $this->rawAttachments = collect($this->rawAttachments)
+        $this->rawAttachments = \Hyperf\Collection\collect($this->rawAttachments)
             ->push(compact('data', 'name', 'options'))
             ->unique(function ($file) {
                 return $file['name'] . $file['data'];
@@ -323,7 +323,7 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
     {
         $mailable = clone $this;
 
-        call([$mailable, 'build']);
+        \Hyperf\Support\call([$mailable, 'build']);
 
         $data = $mailable->buildViewData();
         $data['message'] = $message;
@@ -353,14 +353,14 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
 
     public function queue(?string $queue = null): bool
     {
-        $queue = $queue ?: (property_exists($this, 'queue') ? $this->queue : array_key_first(config('async_queue')));
+        $queue = $queue ?: (property_exists($this, 'queue') ? $this->queue : array_key_first(\Hyperf\Config\config('async_queue')));
 
         return ApplicationContext::getContainer()->get(DriverFactory::class)->get($queue)->push($this->newQueuedJob());
     }
 
     public function later(int $delay, ?string $queue = null): bool
     {
-        $queue = $queue ?: (property_exists($this, 'queue') ? $this->queue : array_key_first(config('async_queue')));
+        $queue = $queue ?: (property_exists($this, 'queue') ? $this->queue : array_key_first(\Hyperf\Config\config('async_queue')));
 
         return ApplicationContext::getContainer()->get(DriverFactory::class)->get($queue)->push($this->newQueuedJob(), $delay);
     }
@@ -480,7 +480,7 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
             'address' => $expected['address'],
         ];
 
-        return collect(
+        return \Hyperf\Collection\collect(
             in_array($property, ['replyTo', 'from']) ? [$this->{$property}] : $this->{$property}
         )->contains(function ($actual) use ($expected) {
             if (! isset($expected['name'])) {
@@ -555,7 +555,7 @@ abstract class Mailable implements MailableInterface, CompressInterface, UnCompr
         if ($this->subject) {
             $message->setSubject($this->subject);
         } else {
-            $message->setSubject(Str::title(Str::snake(class_basename($this), ' ')));
+            $message->setSubject(Str::title(Str::snake(\Hyperf\Support\class_basename($this), ' ')));
         }
 
         return $this;

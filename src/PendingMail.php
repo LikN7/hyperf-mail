@@ -10,8 +10,8 @@ declare(strict_types=1);
  */
 namespace HyperfExt\Mail;
 
-use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Collection;
+use Hyperf\Context\ApplicationContext;
+use Hyperf\Collection\Collection;
 use HyperfExt\Contract\HasLocalePreference;
 use HyperfExt\Contract\HasMailAddress;
 use HyperfExt\Mail\Contracts\MailableInterface;
@@ -143,7 +143,7 @@ class PendingMail
      */
     protected function fill(MailableInterface $mailable): MailableInterface
     {
-        return tap($mailable->to($this->to)
+        return \Hyperf\Tappable\tap($mailable->to($this->to)
             ->cc($this->cc)
             ->bcc($this->bcc), function (MailableInterface $mailable) {
                 if (!empty($this->locale)) {

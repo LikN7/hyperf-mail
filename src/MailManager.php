@@ -12,8 +12,8 @@ namespace HyperfExt\Mail;
 
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Logger\LoggerFactory;
-use Hyperf\Utils\Arr;
-use Hyperf\Utils\Str;
+use Hyperf\Collection\Arr;
+use Hyperf\Stringable\Str;
 use HyperfExt\Contract\ShouldQueue;
 use HyperfExt\Mail\Concerns\PendingMailable;
 use HyperfExt\Mail\Contracts\MailableInterface;
@@ -100,7 +100,7 @@ class MailManager implements MailManagerInterface
     protected function createTransport(array $config): TransportInterface
     {
         if (!empty($config['transport'])) {
-            return make($config['transport'], ['options' => $config['options'] ?? []]);
+            return \Hyperf\Support\make($config['transport'], ['options' => $config['options'] ?? []]);
         }
 
         if (empty($config['dsn'])) {
@@ -143,7 +143,7 @@ class MailManager implements MailManagerInterface
         // on the mailer. This allows us to resolve mailer classes via containers
         // for maximum testability on said classes instead of passing Closures.
         $symfonyMailer = $this->createSymfonyMailer($config);
-        $mailer = make(Mailer::class, ['name' => $name, 'mailer' => $symfonyMailer]);
+        $mailer = \Hyperf\Support\make(Mailer::class, ['name' => $name, 'mailer' => $symfonyMailer]);
 
         // Next we will set all of the global addresses on this mailer, which allows
         // for easy unification of all "from" addresses as well as easy debugging
