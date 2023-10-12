@@ -82,7 +82,7 @@
     },
     "extra": {
         "hyperf": {
-            "config": "HyperfExt\\Mail\\ConfigProvider"
+            "config": "MsPro\\Mail\\ConfigProvider"
         }
     }
 }
